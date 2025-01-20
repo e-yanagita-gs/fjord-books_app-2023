@@ -26,9 +26,9 @@ en:
           destroy: Destroy this book
 
     messages:
-      create: Book was successfully created.
-      update: Book was successfully updated.
-      destroy: Book was successfully destroyed.
+      create: "%{resource} was successfully created."
+      update: "%{resource} was successfully updated."
+      destroy: "%{resource} was successfully destroyed."
 
   errors:
     error: error
