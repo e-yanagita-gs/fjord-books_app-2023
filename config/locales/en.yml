@@ -25,10 +25,10 @@ en:
           edit: Edit this book
           destroy: Destroy this book
 
-    messages:
-      create: "%{resource} was successfully created."
-      update: "%{resource} was successfully updated."
-      destroy: "%{resource} was successfully destroyed."
+  statuses:
+    create: "%{resource} was successfully created."
+    update: "%{resource} was successfully updated."
+    destroy: "%{resource} was successfully destroyed."
 
   errors:
     error: error

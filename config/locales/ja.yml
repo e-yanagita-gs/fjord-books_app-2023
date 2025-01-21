@@ -25,10 +25,10 @@ ja:
           edit: この本を編集する
           destroy: この本を削除する
 
-    messages:
-      create: "%{resource}の作成に成功しました"
-      update: "%{resource}の編集に成功しました"
-      destroy: "%{resource}の削除に成功しました"
+  statuses:
+    create: "%{resource}の作成に成功しました"
+    update: "%{resource}の編集に成功しました"
+    destroy: "%{resource}の削除に成功しました"
 
   errors:
     error: エラー
