@@ -18,3 +18,17 @@
 <nav class="page-nav">
     <%= link_to t('views.common.new', name: Book.model_name.human.downcase), new_book_path %>
 </nav>
+
+<header>
+  <div class="user-edit">
+    <% if user_signed_in? && @user == current_user %>
+      <%= link_to "Account Settings", edit_user_registration_path %>
+    <% end %>
+  </div>
+
+  <div>
+    <% if user_signed_in? %>
+      <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+    <% end %>
+  </div>
+ </header>

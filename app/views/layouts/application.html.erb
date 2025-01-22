@@ -13,12 +13,4 @@
   <body class="<%= params[:action] %>">
     <%= yield %>
   </body>
-
-  <body>
-    <header>
-      <% if user_signed_in? %>
-        <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
-      <% end %>
-    </header>
-  </body>
 </html>
