@@ -20,9 +20,21 @@
 </nav>
 
 <header>
+  <div>
+    <% if user_signed_in? && @user == current_user %>
+      <%= link_to "Profile", user_path(@user) %>
+    <% end %>
+  </div>
+
   <div class="user-edit">
     <% if user_signed_in? && @user == current_user %>
       <%= link_to "Account Settings", edit_user_registration_path %>
+    <% end %>
+  </div>
+
+  <div>
+    <% if user_signed_in? %>
+      <%= link_to 'User List', users_path %>
     <% end %>
   </div>
 

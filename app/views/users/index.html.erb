@@ -1,0 +1,14 @@
+<h1>User List</h1>
+
+<div id="users" class="index-items">
+  <% @users.each do |user| %>
+    <div class="index-item">
+      <%= render user %>
+      <p>
+        <%= link_to "Show profile", user %>
+      </p>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "Back", :back %>

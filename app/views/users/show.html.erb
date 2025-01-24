@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+<h1>Profile</h1>
+
+<div class="show-item">
+  <%= render @user %>
+</div>
+
+<nav class="page-nav">
+  <% if user_signed_in? && @user == current_user %>
+    <%= link_to "Account Settings", edit_user_registration_path %> |
+  <% end %>
+  <%= link_to "Back", root_path %>
+</nav>
