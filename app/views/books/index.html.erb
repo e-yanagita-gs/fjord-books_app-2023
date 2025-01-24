@@ -22,7 +22,7 @@
 <header>
   <div>
     <% if user_signed_in? && @user == current_user %>
-      <%= link_to "Profile", user_path(@user) %>
+      <%= link_to "Profile", profile_path %>
     <% end %>
   </div>
 
