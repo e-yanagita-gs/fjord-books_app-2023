@@ -1,13 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<h1><%= t('views.common.title_index', name: i18n_pluralize(Book.model_name.human)) %></h1>
+<h1><%= t('headers.index', model: Book.model_name.human) %></h1>
 
 <div id="books" class="index-items">
   <% @books.each do |book| %>
     <div class="index-item">
       <%= render book %>
       <p>
-        <%= link_to t('views.common.show', name: Book.model_name.human.downcase), book %>
+        <%= link_to t('helpers.submit.show', model: Book.model_name.human.downcase), book %>
       </p>
     </div>
   <% end %>
@@ -16,31 +16,31 @@
 <%= paginate @books %>
 
 <nav class="page-nav">
-    <%= link_to t('views.common.new', name: Book.model_name.human.downcase), new_book_path %>
+    <%= link_to t('helpers.submit.create', model: Book.model_name.human), new_book_path %>
 </nav>
 
 <header>
   <div>
     <% if user_signed_in? && @user == current_user %>
-      <%= link_to "Profile", profile_path %>
+      <%= link_to t('headers.profile'), profile_path %>
     <% end %>
   </div>
 
   <div class="user-edit">
     <% if user_signed_in? && @user == current_user %>
-      <%= link_to "Account Settings", edit_user_registration_path %>
+      <%= link_to t('headers.edit', model: User.model_name.human), edit_user_registration_path %>
     <% end %>
   </div>
 
   <div>
     <% if user_signed_in? %>
-      <%= link_to 'User List', users_path %>
+      <%= link_to t('headers.index', model: User.model_name.human), users_path %>
     <% end %>
   </div>
 
   <div>
     <% if user_signed_in? %>
-      <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+      <%= button_to t('devise.sessions.signed_out'), destroy_user_session_path, method: :delete %>
     <% end %>
   </div>
  </header>
