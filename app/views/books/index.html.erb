@@ -21,13 +21,13 @@
 
 <header>
   <div>
-    <% if user_signed_in? && @user == current_user %>
+    <% if user_signed_in? %>
       <%= link_to t('headers.profile'), profile_path %>
     <% end %>
   </div>
 
   <div class="user-edit">
-    <% if user_signed_in? && @user == current_user %>
+    <% if user_signed_in? %>
       <%= link_to t('headers.edit', model: User.model_name.human), edit_user_registration_path %>
     <% end %>
   </div>
