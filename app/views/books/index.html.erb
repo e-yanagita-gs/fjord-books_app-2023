@@ -1,13 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<h1><%= t('headers.index', model: Book.model_name.human) %></h1>
+<h1><%= t('views.common.title_index', name: i18n_pluralize(Book.model_name.human)) %></h1>
 
 <div id="books" class="index-items">
   <% @books.each do |book| %>
     <div class="index-item">
       <%= render book %>
       <p>
-        <%= link_to t('helpers.submit.show', model: Book.model_name.human.downcase), book %>
+        <%= link_to t('views.common.show', name: Book.model_name.human.downcase), book %>
       </p>
     </div>
   <% end %>
@@ -16,7 +16,7 @@
 <%= paginate @books %>
 
 <nav class="page-nav">
-    <%= link_to t('helpers.submit.create', model: Book.model_name.human), new_book_path %>
+    <%= link_to t('views.common.new', name: Book.model_name.human.downcase), new_book_path %>
 </nav>
 
 <header>
