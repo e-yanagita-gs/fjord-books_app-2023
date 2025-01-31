@@ -6,8 +6,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :books, dependent: :destroy
-
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
