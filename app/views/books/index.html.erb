@@ -22,19 +22,19 @@
 <header>
   <div>
     <% if user_signed_in? %>
-      <%= link_to t('headers.profile'), profile_path %>
+      <%= link_to User.human_attribute_name(:profile), profile_path %>
     <% end %>
   </div>
 
   <div class="user-edit">
     <% if user_signed_in? %>
-      <%= link_to t('headers.edit', model: User.model_name.human), edit_user_registration_path %>
+      <%= link_to t('views.common.edit', name: User.model_name.human), edit_user_registration_path %>
     <% end %>
   </div>
 
   <div>
     <% if user_signed_in? %>
-      <%= link_to t('headers.index', model: User.model_name.human), users_path %>
+      <%= link_to t('views.common.title_index', name: User.model_name.human), users_path %>
     <% end %>
   </div>
 

@@ -9,22 +9,3 @@ ja:
         memo: メモ
         picture: 画像
         title: タイトル
-
-  headers:
-    index: "%{model}一覧"
-    new: "新しい%{model}"
-    edit: "この%{model}の編集"
-    profile: プロフィール
-
-  helpers:
-    submit:
-      show: "この%{model}を表示"
-      create: "新しい%{model}を作成"
-      back: "%{model}一覧に戻る"
-      edit: "この%{model}を編集する"
-      destroy: "この%{model}を削除する"
-
-  statuses:
-    create: "%{model}の作成に成功しました"
-    update: "%{model}の編集に成功しました"
-    destroy: "%{model}の削除に成功しました"
