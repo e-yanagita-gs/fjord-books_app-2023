@@ -12,6 +12,6 @@ class User < ApplicationRecord
     return unless avatar.attached? && !avatar.blob.content_type.in?(%('image/jpg image/png image/gif'))
 
     avatar.purge
-    errors.add(User.human_attribute_name(:avatar), 'はjpgまたはpngまたはgif形式でアップロードしてください')
+    errors.add(:avatar, 'はjpgまたはpngまたはgif形式でアップロードしてください')
   end
 end
