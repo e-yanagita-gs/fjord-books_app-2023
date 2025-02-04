@@ -3,7 +3,10 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_one_attached :avatar
+  has_one_attached :avatar do |attachable|
+    attachable.variant :small, resize_to_limit: [100, 100]
+    attachable.variant :large, resize_to_limit: [150, 150]
+  end
   validate :avatar_type
 
   private
