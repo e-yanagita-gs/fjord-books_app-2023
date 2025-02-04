@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'books#index'
 
-  get 'profile', to: 'users#profile', as: :profile
+  get 'profile', to: 'users#show', as: :profile
 
   resources :users
   resources :books

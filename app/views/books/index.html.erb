@@ -22,7 +22,8 @@
 <header>
   <div>
     <% if user_signed_in? %>
-      <%= link_to User.human_attribute_name(:profile), profile_path %>
+#      <%= link_to User.human_attribute_name(:profile), profile_path %>
+      <%= link_to User.human_attribute_name(:profile), user_path(current_user) %>
     <% end %>
   </div>
 
