@@ -9,5 +9,4 @@ class User < ApplicationRecord
   end
 
   validates :avatar, blob: { content_type: ['image/png', 'image/gif', 'image/jpeg'] }
-
 end
