@@ -322,7 +322,7 @@ DEPENDENCIES
   debug
   devise (~> 4.9)
   devise-i18n
-  erb_lint (~> 0.9.0)
+  erb_lint
   faker
   i18n_generators
   importmap-rails
