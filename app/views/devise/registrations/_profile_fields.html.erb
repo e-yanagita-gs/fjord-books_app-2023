@@ -20,6 +20,7 @@
 
 <div>
   <%= f.label :avatar, style: "display: block" %>
+  <% f.object.reload %>
   <%= image_tag f.object.avatar.variant(:small) if f.object.avatar.attached? %>
   <%= f.file_field :avatar %>
 </div>
