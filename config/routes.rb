@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'books#index'
 
-  resources :users
+  resources :users, only: [:index, :show]
   resources :books
 
   if Rails.env.development?
