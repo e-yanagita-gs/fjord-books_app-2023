@@ -9,6 +9,6 @@ class User < ApplicationRecord
   end
 
   has_many :reports
-  has_many :comments dependent: :nullify
+  has_many :comments, dependent: :nullify
 
 end
