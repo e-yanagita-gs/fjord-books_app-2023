@@ -20,7 +20,10 @@
 
 <div>
   <%= f.label :avatar, style: "display: block" %>
-  <% f.object.reload %>
-  <%= image_tag f.object.avatar.variant(:small) if f.object.avatar.attached? %>
+  <% if @user.avatar.attached? && @user.avatar.blob.content_type.in?(%('image/jpeg image/png image/gif')) %>
+    <%= image_tag @user.avatar.variant(:small) %>
+  <% elsif session[:original_avatar_url].present? %>
+    <%= image_tag session[:original_avatar_url] %>
+  <% end %>
   <%= f.file_field :avatar %>
 </div>
