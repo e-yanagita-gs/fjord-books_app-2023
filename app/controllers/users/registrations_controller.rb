@@ -9,6 +9,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  private
+
   def store_current_avatar
     user = current_user
     return unless user.avatar.attached?
