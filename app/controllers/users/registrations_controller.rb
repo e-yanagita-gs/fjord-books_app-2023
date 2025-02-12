@@ -12,8 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def store_current_avatar
-    user = current_user
-    return unless user.avatar.attached?
+    return unless current_user.avatar.attached?
 
     session[:original_avatar_url] = url_for(current_user.avatar.variant(:small))
   end
