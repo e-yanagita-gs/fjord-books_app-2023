@@ -1,18 +1,13 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create destroy]
+  before_action :set_commentable, only: %i[create destroy]
 
   def create
-#    @commentable = find_commentable
-#    @comment = current_user.reports.build(comment_params)
-    @comment = current_user.reports
+    @comment = @commentable.comments.build(comment_params)
     @comment.user = current_user
-    respond_to do |format|
-    if @comment.save
-#      format.html { redirect_to @comment.commentable, notice: t('controllers.common.notice_create', name: Report.model_name.human) }
-      redirect_to @report, notice: 'Success'
+    if comment.save
+      redirect_to @commentable, notice: 'Success'
     else
-#      format.html { redirect_to @comment.commentable, notice: t('controllers.common.notice_create', name: Report.model_name.human) }
-      redirect_to @report, alert: 'Failed'
+      redirect_to @commentable, alert: 'Failed'
     end
   end
 
@@ -41,10 +36,19 @@ class CommentsController < ApplicationController
     @report = Report.find(params[:id])
   end
 
-#  def comment_params
-#    params.require(:comment).permit(:body).merge(user_id: current_user.id)
-3  end
+  def set_commentable
+    if params[:report_id]
+      @commentable = Report.find(params[:report_id])
+    elsif params[:book_id]
+      @commentable = Book.find(params[:book_id])
+    end
+  end
 
+  def comment_params
+    params.require(:comment).permit(:content)
+  end
+
+=begin
   def find_commentable
     params.each do |name, value|
       if name =~ /(.+)_id$/
@@ -53,4 +57,5 @@ class CommentsController < ApplicationController
     end
     nil
   end
+=end
 end
