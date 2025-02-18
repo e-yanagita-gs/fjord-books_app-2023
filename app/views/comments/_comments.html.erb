@@ -1,0 +1,28 @@
+<h2><%= Comment.model_name.human %></h2>
+<div class="index-items">
+  <% comments.each do |comment| %>
+    <% if comment.persisted? %>
+      <div class="index-item">
+        <div>
+          <p>
+            <strong><%= User.model_name.human.downcase %>:</strong>
+            <%= comment.user.name.present? ? comment.user.name : comment.user.email %>
+          </p>
+          <p>
+            <strong><%= Report.human_attribute_name(:created_at) %>:</strong>
+            <%= I18n.l(comment.created_at.in_time_zone('Asia/Tokyo'), format: :long) %>
+          </p>
+          <p>
+            <strong><%= Comment.model_name.human.downcase %>:</strong>
+            <%= comment.content %>
+          </p>
+          <nav class="page-nav">
+            <% if current_user == comment.user %>
+              <%= button_to t('views.common.destroy', name: Comment.model_name.human.downcase), polymorphic_path([commentable, comment]), method: :delete %>
+            <% end %>
+          </nav>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -4,54 +4,19 @@
   <%= render @report %>
 </div>
 
-<h2>Comments</h2>
-<% if @report.comments.any? %>
-  <ul>
-    <% @report.comments.each do |comment| %>
-      <li>
-        <p><%= comment.content %></p>
-        <small>Posted at <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></small>
-        <%= link_to 'Delete', report_comment_path(@report, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No comments yet. Be the first to add one!</p>
-<% end %>
-
-<% if @report.present? %>
-  <h3>Add a Comment</h3>
-  <%= form_with(model: [ @report, @report.comments.build ], local: true) do |form| %>
-    <div>
-      <%= form.label :content, "Your Comment" %>
-      <%= form.text_area :content, rows: 4 %>
-    </div>
-    <div>
-      <%= form.submit "Submit Comment" %>
-    </div>
-  <% end %>
-<% end %>
-
-<% if @comment.present? %>
-  <% @comments.each do |comment| %>
-    <small>
-      <%= comment.user.name.present? ? comment.user.name : comment.user.email %>
-      ( <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %> )
-    </small>
-
-    <% if current_user == comment.user %>
-      <%= button_to 'Delete', report_comment_path(@report, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
-  <% end %>
-<% end%>
-
 <nav class="page-nav">
   <% if @report.user == current_user %>
-    <%= link_to t('views.common.edit', name: Report.model_name.human.downcase), edit_report_path(@report) %> |
+    <%= link_to t('views.common.edit', name: Report.model_name.human.downcase), edit_report_path(@report) %>
   <% end %>
-  <%= link_to t('views.common.back', name: i18n_pluralize(Report.model_name.human.downcase)), reports_path %>
 
   <% if @report.user == current_user %>
     <%= button_to t('views.common.destroy', name: Report.model_name.human.downcase), @report, method: :delete %>
   <% end %>
+</nav>
+
+<%= render 'comments/comments', commentable: @report, comments: @comments %>
+<%= render 'comments/form', commentable: @report, comment: @comment %>
+
+<nav class="page-nav">
+  <%= link_to t('views.common.back', name: i18n_pluralize(Report.model_name.human.downcase)), reports_path %>
 </nav>
