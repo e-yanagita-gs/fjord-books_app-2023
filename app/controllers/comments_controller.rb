@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @commentable.comments.find(params[:id]).destroy
+    @commentable.comments.find(params[:id]).destroy!
     redirect_to @commentable
   end
 
