@@ -6,12 +6,11 @@ class CommentsController < ApplicationController
   def create
     @comment = @commentable.comments.build(comment_params)
     @comment.user = current_user
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human) }
-      else
-        format.html { redirect_to @commentable, notice: t('views.common.error') }
-      end
+    if @comment.save
+      redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
+    else
+      flash.now[:alert] = t('views.common.error')
+      render 'commentables/show'
     end
   end
 
