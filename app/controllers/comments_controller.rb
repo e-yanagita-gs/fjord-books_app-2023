@@ -21,10 +21,6 @@ class CommentsController < ApplicationController
 
   private
 
-  def set_report
-    @report = Report.find(params[:id])
-  end
-
   def set_commentable
     if params[:report_id]
       @commentable = Report.find(params[:report_id])
