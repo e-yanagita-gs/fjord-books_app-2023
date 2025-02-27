@@ -12,7 +12,6 @@ class BooksController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @book.comments.order(:id)
-    @resource = @comment
   end
 
   # GET /books/new
