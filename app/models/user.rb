@@ -12,6 +12,6 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   def display_name
-    name.present? ? name : email
+    name.presence || email
   end
 end
