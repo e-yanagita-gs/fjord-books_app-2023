@@ -10,7 +10,7 @@
           </p>
           <p>
             <strong><%= Report.human_attribute_name(:created_at) %>:</strong>
-            <%= I18n.l(comment.created_at.in_time_zone('Asia/Tokyo'), format: :long) %>
+            <%= I18n.l(comment.created_at, format: :long) %>
           </p>
           <p>
             <strong><%= Comment.model_name.human.downcase %>:</strong>
