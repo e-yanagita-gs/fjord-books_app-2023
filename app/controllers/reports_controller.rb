@@ -3,12 +3,12 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
 
-  # GET /reports or /reports.json
+  # GET /reports
   def index
     @reports = Report.order(:id).page(params[:page]).per(10)
   end
 
-  # GET /reports/1 or /reports/1.json
+  # GET /reports/1
   def show
     @comment = Comment.new
     @comments = @report.comments
@@ -23,7 +23,7 @@ class ReportsController < ApplicationController
   # GET /reports/1/edit
   def edit; end
 
-  # POST /reports or /reports.json
+  # POST /reports
   def create
     @report = current_user.reports.build(report_params)
 
@@ -36,7 +36,7 @@ class ReportsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /reports/1 or /reports/1.json
+  # PATCH/PUT /reports/1
   def update
     respond_to do |format|
       if @report.update(report_params)
@@ -47,7 +47,7 @@ class ReportsController < ApplicationController
     end
   end
 
-  # DELETE /reports/1 or /reports/1.json
+  # DELETE /reports/1
   def destroy
     @report.destroy
 
