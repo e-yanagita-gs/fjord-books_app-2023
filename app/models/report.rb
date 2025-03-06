@@ -22,6 +22,8 @@ class Report < ApplicationRecord
     created_at.to_date
   end
 
+  private
+
   def update_mentions
     mentioned_report_ids = extract_mentioned_report_ids
     return if mentioned_report_ids.empty?
