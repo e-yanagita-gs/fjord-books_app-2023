@@ -1,0 +1,10 @@
+<div>
+  <p><strong>この日報は以下の日報からリンクされています:</strong></p>
+  <ul>
+    <% @report.mentioned_reports.each do |mentioned_report| %>
+      <li>
+        <%= link_to mentioned_report.title, report_path(mentioned_report) %>
+      </li>
+    <% end %>
+  </ul>
+</div>
