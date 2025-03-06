@@ -1,5 +1,5 @@
 <div>
-  <p><strong>この日報は以下の日報からリンクされています:</strong></p>
+  <p><strong><%= t('shared.mentions.link', name:Report.model_name.human) %>:</strong></p>
   <ul>
     <% @report.mentioned_reports.each do |mentioned_report| %>
       <li>
