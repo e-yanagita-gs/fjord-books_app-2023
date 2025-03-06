@@ -1,7 +1,7 @@
 <div>
   <p><strong><%= t('shared.mentions.link', name:Report.model_name.human) %>:</strong></p>
   <ul>
-    <% @report.mentioned_reports.each do |mentioned_report| %>
+    <% @report.mentioned_reports.order(:id).each do |mentioned_report| %>
       <li>
         <%= link_to mentioned_report.title, report_path(mentioned_report) %>
       </li>
