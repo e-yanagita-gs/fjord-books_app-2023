@@ -2,7 +2,7 @@
 
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
-  before_action :authorize_user, only: [:update, :destroy]
+  before_action :authorize_user, only: %i[update destroy]
 
   # GET /reports
   def index
