@@ -12,7 +12,6 @@ class Report < ApplicationRecord
   validates :content, presence: true
 
   after_save :update_mentions
-  after_destroy :remove_mentions
 
   def editable?(target_user)
     user == target_user
@@ -36,10 +35,5 @@ class Report < ApplicationRecord
 
   def extract_mentioned_report_ids
     content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.map(&:to_i).uniq
-  end
-
-  def remove_mentions
-    active_mentions.destroy_all
-    passive_mentions.destroy_all
   end
 end
