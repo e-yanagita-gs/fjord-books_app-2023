@@ -29,7 +29,7 @@ class Report < ApplicationRecord
 
     active_mentions.destroy_all
     mentioned_report_ids.each do |id|
-      active_mentions.create(mentionee_id: id)
+      active_mentions.create!(mentionee_id: id)
     end
   end
 
