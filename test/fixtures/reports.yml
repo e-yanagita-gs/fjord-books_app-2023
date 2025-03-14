@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-alice:
+alice_report:
   user: alice
   title: SampleReport_alice
   content: This is a sample report by Alice.
 
-bob:
+bob_repot:
   user: bob
   title: SampleReport_bob
   content: This is a sample report by Bob.
