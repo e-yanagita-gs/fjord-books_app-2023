@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'application_system_test_case'
+
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
