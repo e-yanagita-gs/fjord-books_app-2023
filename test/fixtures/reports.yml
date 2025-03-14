@@ -2,10 +2,10 @@
 
 alice:
   user: alice
-  title: MyString
-  content: MyText
+  title: SampleReport_alice
+  content: This is a sample report by Alice.
 
 bob:
   user: bob
-  title: MyString
-  content: MyText
+  title: SampleReport_bob
+  content: This is a sample report by Bob.
