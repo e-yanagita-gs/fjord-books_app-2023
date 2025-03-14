@@ -14,12 +14,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def store_current_avatar
     return unless current_user.avatar.attached?
 
-    session[:original_avatar_url] = url_for(current_user.avatar.variant(:small))
+    @original_avatar_blob = current_user.avatar.blob
   end
 
   def restore_avatar(user)
-    return unless session[:original_avatar_url].present? && !user.avatar.attached?
+    return unless @original_avatar_blob && !user.avatar.attached?
 
-    user.avatar.attach(ActiveStorage::Blob.find_signed(session[:original_avatar_url]))
+    user.avatar.attach(@original_avatar_blob)
   end
 end
