@@ -9,4 +9,9 @@ class User < ApplicationRecord
   end
 
   validates :avatar, blob: { content_type: ['image/png', 'image/gif', 'image/jpeg'] }
+
+  def avatar_in_database
+    user_in_db = User.find(id)
+    user_in_db.avatar if user_in_db.avatar.attached?
+  end
 end
