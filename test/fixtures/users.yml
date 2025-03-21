@@ -6,7 +6,6 @@
 #
 alice:
   email: alice@example.com
-  name: ''
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
 
 bob:

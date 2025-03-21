@@ -6,6 +6,8 @@ class UserTest < ActiveSupport::TestCase
   setup do
     @alice = users(:alice)
     @bob = users(:bob)
+    @alice.name = ''
+    @bob.name = 'Bob'
   end
 
   test 'name_or_email' do
