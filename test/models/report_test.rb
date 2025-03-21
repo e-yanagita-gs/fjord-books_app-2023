@@ -13,4 +13,8 @@ class ReportTest < ActiveSupport::TestCase
     assert_equal true, @alice_report.editable?(@alice)
     assert_equal false, @alice_report.editable?(@bob)
   end
+
+  test 'created_on' do
+    assert_equal Time.zone.today, @alice_report.created_on
+  end
 end
