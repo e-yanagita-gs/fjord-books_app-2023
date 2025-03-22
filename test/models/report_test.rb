@@ -30,5 +30,15 @@ class ReportTest < ActiveSupport::TestCase
     assert_empty bob_report.mentioning_reports
     bob_report.save!
     assert_includes bob_report.mentioning_reports, @alice_report
+
+    alice_second_report = @alice.reports.create!(title: 'MentionedReport', content: 'This is a mentioned report.')
+    bob_report.update!(content: "http://localhost:3000/reports/#{alice_second_report.id}")
+    bob_report.mentioning_reports.reload
+    assert_includes bob_report.mentioning_reports, alice_second_report
+    assert_not_includes bob_report.mentioning_reports, @alice_report
+
+    bob_report.destroy!
+    bob_report.mentioning_reports.reload
+    assert_empty bob_report.mentioning_reports
   end
 end
