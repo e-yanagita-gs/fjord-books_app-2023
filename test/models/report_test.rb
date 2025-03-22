@@ -15,7 +15,14 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test 'created_on' do
-    assert_equal Time.zone.today, @alice_report.created_on
+    created_time = Time.zone.local(2024, 3, 22, 10, 0, 0)
+    report = Report.create!(
+      created_at: created_time,
+      user: @alice,
+      title: @alice_report.title,
+      content: @alice_report.content
+    )
+    assert_equal created_time.to_date, report.created_on
   end
 
   test 'save_mentions' do
