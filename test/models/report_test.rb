@@ -22,7 +22,7 @@ class ReportTest < ActiveSupport::TestCase
       title: @alice_report.title,
       content: @alice_report.content
     )
-    assert_equal '2024-03-22', report.created_on.to_s
+    assert_equal Date.new(2024, 3, 22), report.created_on
   end
 
   test 'save_mentions' do
